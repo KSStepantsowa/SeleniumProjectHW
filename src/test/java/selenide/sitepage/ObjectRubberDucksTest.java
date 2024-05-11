@@ -4,7 +4,7 @@ import com.codeborne.selenide.AssertionMode;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.testng.SoftAsserts;
-import com.epam.reportportal.service.ReportPortal;
+//import com.epam.reportportal.service.ReportPortal;
 import io.qameta.allure.*;
 import org.openqa.selenium.*;
 
@@ -27,7 +27,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 @Epic("Selenium training")
 @Feature("Rubber ducks")
-@Listeners({ SoftAsserts.class, ScreenshotListener.class})
+@Listeners({ SoftAsserts.class})
 
 public class ObjectRubberDucksTest {
     public static final String LIGHT_PINK = "rgba(255, 204, 204, 1)";
@@ -55,7 +55,7 @@ public class ObjectRubberDucksTest {
         if(testResult.getStatus() == ITestResult.FAILURE) {
             File screenshot = Selenide.screenshot(OutputType.FILE);
             try {
-                ReportPortal.emitLog(testResult.getMethod().getMethodName(), "ERROR", Calendar.getInstance().getTime(), screenshot);
+//                ReportPortal.emitLog(testResult.getMethod().getMethodName(), "ERROR", Calendar.getInstance().getTime(), screenshot);
                 Allure.addAttachment(testResult.getMethod().getMethodName(), new FileInputStream(screenshot));
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
