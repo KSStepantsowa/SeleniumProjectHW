@@ -6,11 +6,10 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.testng.SoftAsserts;
 import com.epam.reportportal.service.ReportPortal;
 import io.qameta.allure.*;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
+import org.openqa.selenium.*;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -37,7 +36,12 @@ public class ObjectRubberDucksTest {
 
     @BeforeMethod
     public void setup() {
-        Configuration.browser = CHROME;
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setBrowserName(CHROME);
+        caps.setPlatform(Platform.WINDOWS);
+
+        Configuration.remote = "http://192.168.0.100:4444/wd/hub";
+        Configuration.browserCapabilities = caps;
         Configuration.pageLoadTimeout = 5000;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://litecart.stqa.ru/en/";
