@@ -77,11 +77,11 @@
             <artifactId>aspectjlib</artifactId>
             <version>1.6.2</version>
         </dependency>
-        <dependency>
-            <groupId>com.epam.reportportal</groupId>
-            <artifactId>agent-java-testng</artifactId>
-            <version>5.4.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.epam.reportportal</groupId>-->
+<!--            <artifactId>agent-java-testng</artifactId>-->
+<!--            <version>5.4.2</version>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <plugins>
@@ -98,22 +98,22 @@
                 <version>3.2.5</version>
                 <configuration>
                     <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                        <property>listener</property>
-                        <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>
+<!--                        <property>-->
+<!--                            <name>usedefaultlisteners</name>-->
+<!--                            <value>false</value>-->
+<!--                        </property>-->
+<!--                        <property>listener</property>-->
+<!--                        <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>-->
                     </properties>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <systemPropertyVariables>
                         <allure.result.directory>${project.build.directory}/allure-results</allure.result.directory>
-                        <rp.endpoint>https://demo.reportportal.io</rp.endpoint>
-                        <rp.api.key>training-key_-4gEWzGuQWi_wIcaWFEbkU06G6bA3YYOCrVK2IdR-BFI59k-cfYsNpNspSeFXSEm</rp.api.key>
-                        <rp.launch>Rubber Ducks Test</rp.launch>
-                        <rp.project>karystah_personal</rp.project>
+<!--                        <rp.endpoint>https://demo.reportportal.io</rp.endpoint>-->
+<!--                        <rp.api.key>training-key_-4gEWzGuQWi_wIcaWFEbkU06G6bA3YYOCrVK2IdR-BFI59k-cfYsNpNspSeFXSEm</rp.api.key>-->
+<!--                        <rp.launch>Rubber Ducks Test</rp.launch>-->
+<!--                        <rp.project>karystah_personal</rp.project>-->
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>
