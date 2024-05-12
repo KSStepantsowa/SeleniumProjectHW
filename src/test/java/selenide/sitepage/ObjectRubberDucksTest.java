@@ -6,6 +6,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.testng.SoftAsserts;
 //import com.epam.reportportal.service.ReportPortal;
 import io.qameta.allure.*;
+import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -24,6 +25,7 @@ import java.util.Calendar;
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static staticpageobjectHW.TestBase.driver;
 
 @Epic("Selenium training")
 @Feature("Rubber ducks")
@@ -34,14 +36,16 @@ public class ObjectRubberDucksTest {
     public static final String LIGHT_GREEN = "rgba(214, 236, 166, 1)";
 
 
+
     @BeforeMethod
     public void setup() {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setBrowserName(CHROME);
         caps.setPlatform(Platform.WINDOWS);
 
-        Configuration.remote = "http://192.168.0.100:4444/wd/hub";
+        Configuration.remote = "http://192.168.100.42:4444/wd/hub";
         Configuration.browserCapabilities = caps;
+
         Configuration.pageLoadTimeout = 5000;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://litecart.stqa.ru/en/";
@@ -103,7 +107,7 @@ public class ObjectRubberDucksTest {
     @Description("The logging form is not displayed when user is authorized")
     @Story("Authorization")
     @Test
-    public void isLoginFormVisibleTest() {
+    public void isLoginFormVisibleTest(){
 
         LoginPage.attemptLogin("xidepo1971@rartg.com", "123456789");
 

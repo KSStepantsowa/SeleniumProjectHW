@@ -11,9 +11,9 @@ import static com.codeborne.selenide.Selenide.$;
 @Listeners({ SoftAsserts.class, ScreenshotListener.class})
 
 public class ShoppingCartPage {
-    private static By cartContentButtonLocator = By.cssSelector("div[id='cart'] a[class='content']");
-    private static By emptyCartMessageTextLocator = By.cssSelector("div[id='checkout-cart-wrapper'] em");
-    private static By cartCheckoutButtonLocator = By.cssSelector("div[id='cart'] a[class='link']");
+    private static By cartContentButtonLocator = By.cssSelector("*[id='cart'] *[class='content']");
+    private static By emptyCartMessageTextLocator = By.cssSelector("*[id='checkout-cart-wrapper'] em");
+    private static By cartCheckoutButtonLocator = By.cssSelector("*[id='cart'] *[class='link']");
 
 
     @Step("User opens shopping cart page by clicking on 'Checkout' button")

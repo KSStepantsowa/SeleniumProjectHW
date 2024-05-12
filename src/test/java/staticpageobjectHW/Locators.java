@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Locators {
-    private static Properties locators;
+    private static Properties locators = new Properties();
 
     static {
         InputStream is = Locators.class.getResourceAsStream("/locators.properties");
