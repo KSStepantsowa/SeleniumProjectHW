@@ -5,27 +5,23 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.testng.SoftAsserts;
 //import com.epam.reportportal.service.ReportPortal;
+import com.codeborne.selenide.webdriver.EdgeDriverFactory;
 import io.qameta.allure.*;
-import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Calendar;
 
 import static com.codeborne.selenide.Browsers.CHROME;
+import static com.codeborne.selenide.Browsers.EDGE;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static staticpageobjectHW.TestBase.driver;
 
 @Epic("Selenium training")
 @Feature("Rubber ducks")
@@ -65,11 +61,12 @@ public class ObjectRubberDucksTest {
                 throw new RuntimeException(e);
             }
         }
+        closeWebDriver();
     }
 
     @Description("Quantity of ducks in cart changes when duck is added to cart. Not logged in user")
     @Story("Add to cart")
-    @Test
+    @Test(priority = 7)
     public void addToCartNotLoggingUserTest() {
         $(By.cssSelector("#box-most-popular [alt='Blue Duck']")).click();
         $(By.name("add_cart_product")).click();
@@ -79,7 +76,7 @@ public class ObjectRubberDucksTest {
 
     @Description("When user logged in into the system success message is shown")
     @Story("Authorization")
-    @Test
+    @Test(priority = 1)
     public void ducksCorrectLoginTest() {
         String expectedLoginMessage = "You are now logged in as Test Auto.";
 
@@ -89,8 +86,8 @@ public class ObjectRubberDucksTest {
 
     @Description("When user failed to login into the system error message is shown")
     @Story("Authorization")
-    @Test
-    public void ducksIncorrectLoginTest() {
+    @Test(priority = 2)
+    public void ducksIncorrectLoginTest_2() {
         String expectedErrorMessage = "Wrong password or the account is disabled, or does not exist";
 
         LoginPage.attemptLogin("stepantsowa.karina@gvdvd.com", "gsaljgxx7");
@@ -99,15 +96,15 @@ public class ObjectRubberDucksTest {
 
     @Description("The logging form is displayed when user is not authorized")
     @Story("Authorization")
-    @Test
-    public void isLoginFormDisplayedTest() {
+    @Test(priority = 3)
+    public void b_isLoginFormDisplayedTest_3() {
         LoginPage.loginFormIsDisplayed();
     }
 
     @Description("The logging form is not displayed when user is authorized")
     @Story("Authorization")
-    @Test
-    public void isLoginFormVisibleTest(){
+    @Test(priority = 4)
+    public void isLoginFormVisibleTest_4(){
 
         LoginPage.attemptLogin("xidepo1971@rartg.com", "123456789");
 
@@ -120,7 +117,7 @@ public class ObjectRubberDucksTest {
 
     @Description("Not authorized user can open product from 'Most popular' category")
     @Story("Product categories")
-    @Test
+    @Test(priority = 8)
     public void openProductNotLoggedInUserTest() {
         ProductsPage.openProductFromMostPopularBox();
         ProductsPage.openedMostPopularProductIsDisplayed();
@@ -128,7 +125,7 @@ public class ObjectRubberDucksTest {
 
     @Description("User cannot add to cart product when quantity field is empty")
     @Story("Product categories")
-    @Test
+    @Test(priority = 9)
     public void emptyQuantityProductAlertTest() {
         ProductsPage.getQuantityProductAlert();
         Alert alert = switchTo().alert();
@@ -138,7 +135,7 @@ public class ObjectRubberDucksTest {
 
    @Description("Quantity of ducks in cart changes when duck is added to cart. Logged in user")
    @Story("Add to cart")
-   @Test
+   @Test(priority = 10)
     public void addToCartLoggingUserTest() {
        LoginPage.attemptLogin("xidepo1971@rartg.com", "123456789");
 
@@ -149,8 +146,8 @@ public class ObjectRubberDucksTest {
 
     @Description("There is an empty cart message if the product is not added to cart")
     @Story("Add to cart")
-    @Test
-    public void openShoppingCartByContentButtonTest() {
+    @Test(priority = 5)
+    public void openShoppingCartByContentButtonTest_5() {
         String expectedEmptyCartMessage = "There are no items in your cart.";
         ShoppingCartPage.clickOnContentButton();
         ShoppingCartPage.validateEmptyCartMessageText(expectedEmptyCartMessage);
@@ -158,8 +155,8 @@ public class ObjectRubberDucksTest {
 
     @Description("User can open shopping cart by clicking on 'Checkout' button")
     @Story("Add to cart")
-    @Test
-    public void openShoppingCartByCheckoutButtonTest() {
+    @Test(priority = 6)
+    public void openShoppingCartByCheckoutButtonTest_6() {
         String expectedEmptyCartMessage = "There are no items in your cart.";
 
         ShoppingCartPage.clickOnCheckoutButton();
@@ -168,7 +165,7 @@ public class ObjectRubberDucksTest {
 
     @Description("User is redirected to 'Rubber Ducks' page when he clicks 'Category one' menu option")
     @Story("Menu")
-    @Test
+    @Test(priority = 11)
     public void clickOnRubberDucksMenuButton() {
         String categoryOneTitle = "Rubber Ducks";
         SiteMenuPage.checkCategoryOnePageTitle(categoryOneTitle);

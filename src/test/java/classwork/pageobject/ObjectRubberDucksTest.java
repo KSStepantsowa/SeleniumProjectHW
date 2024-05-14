@@ -71,7 +71,7 @@ public class ObjectRubberDucksTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 
-        WebElement loginField = driver.findElement(By.name("title"));
+        WebElement loginField = driver.findElement(By.cssSelector("head title"));
 
         System.out.println(loginField.getText());
 
