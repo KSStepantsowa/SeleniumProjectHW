@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,7 +19,7 @@ public class InternetHerokuAppTest {
 
     @Test
     public void findLinkTest() {
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
         driver.get("https://the-internet.herokuapp.com/");
 
         List<WebElement> lists = driver.findElements(By.tagName("li"));
