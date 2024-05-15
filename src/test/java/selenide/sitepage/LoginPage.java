@@ -17,7 +17,7 @@ public class LoginPage extends PageBase {
     private static By passwordInputLocator = By.cssSelector("input[name='password']");
     private static By loginButtonLocator = By.name("login");
 
-    private static By loginPageForm = By.cssSelector("*[id= 'box-account-login'] form");
+    private static By loginPageForm = By.cssSelector("*[id= 'box-account-login'] form[name='login_form']");
 
     @Step("Attempt tp login")
     public static void attemptLogin(String username, String password) {

@@ -19,7 +19,7 @@ import staticpageobjectHW.Browser;
 import java.time.Duration;
 
 public class ObjectRubberDucksTest {
-    public static final String LIGHT_PINK = "rgba(255, 204, 204, 2)";
+    public static final String LIGHT_PINK = "rgba(255, 204, 204, 1)";
     private WebDriver driver;
 
     @BeforeMethod

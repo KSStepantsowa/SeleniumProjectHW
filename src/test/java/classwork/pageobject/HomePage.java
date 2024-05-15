@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import classwork.pagefactory.PageBase;
 
 public class HomePage extends PageBase {
-    private By errorMessageLocator = By.cssSelector("[class = 'notice errors]");
-    private By successMessageLocator = By.cssSelector("[class = 'notice success']");
+    private By errorMessageLocator = By.cssSelector("*[class='notice errors']");
+    private By successMessageLocator = By.cssSelector("*[class='notice success']");
 
     private WebDriver driver;
 
