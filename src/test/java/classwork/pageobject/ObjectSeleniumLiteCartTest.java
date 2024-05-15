@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ObjectSeleniumLiteCartTest {
 
-    public static final String LIGHT_GREEN = "rgb(214, 236, 166)";
+    public static final String LIGHT_GREEN = "rgba(214, 236, 166, 1)";
     private WebDriver driver;
     @BeforeMethod
     public void setup() {

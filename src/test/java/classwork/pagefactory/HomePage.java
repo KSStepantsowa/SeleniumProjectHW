@@ -3,9 +3,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage {
-    @FindBy(css = "notice errors]")
+    @FindBy(css = "div[class='notice errors']")
     private WebElement errorMessage;
-    @FindBy(css = "notice success]")
+    @FindBy(css = "div[class='notice success']")
     private WebElement successMessage;
 
 

@@ -6,8 +6,8 @@ import org.testng.asserts.SoftAssert;
 import classwork.pageobject.TestBase;
 
 public class FactoryRubberDucksTest extends TestBase {
-    public static final String LIGHT_PINK = "rgba(255, 204, 204, 2)";
-    public static final String LIGHT_GREEN = "rgb(214, 236, 166)";
+    public static final String LIGHT_PINK = "rgba(255, 204, 204, 1)";
+    public static final String LIGHT_GREEN = "rgba(214, 236, 166, 1)";
 
     @Test
     public void ducksIncorrectLoginTest() {
