@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel Testing" parallel="tests">
+    <test name="Edge test">
+        <parameter name="BrowserType" value="edge"/>
+        <groups>
+            <run>
+                <include name="authorization"/>
+                <include name="menu"/>
+                <include name="addToCart"/>
+                <include name="shoppingCart"/>
+                <include name="productCategories"/>
+                <include name="productCategories"/>
 
-<suite thread-count="2" name="Suite" parallel="tests">
+            </run>
+        </groups>
+<!--        <classes>-->
+<!--            <class name="selenide.sitepage.ObjectRubberDucksTest"/>-->
+<!--            <class name="selenide.sitepage.HomePage"/>-->
+<!--            <class name="selenide.sitepage.LoginPage"/>-->
+<!--            <class name="selenide.sitepage.ProductsPage"/>-->
+<!--            <class name="selenide.sitepage.ScreenshotListener"/>-->
+<!--            <class name="selenide.sitepage.ShoppingCartPage"/>-->
+<!--            <class name="selenide.sitepage.SiteMenuPage"/>-->
 
-    <test name="Test_edge">
-        <parameter name="browser" value="edge"></parameter>
+<!--            <class name="staticpageobjectHW.StaticRubberDucksTest"/>-->
+<!--            <class name="staticpageobjectHW.HomePage"/>-->
+<!--            <class name="staticpageobjectHW.Locators"/>-->
+<!--            <class name="staticpageobjectHW.LoginPage"/>-->
+<!--            <class name="staticpageobjectHW.PageBase"/>-->
+<!--            <class name="staticpageobjectHW.ShoppingCartPage"/>-->
+<!--            <class name="staticpageobjectHW.SiteMenuPage"/>-->
+<!--            <class name="staticpageobjectHW.TestBase"/>-->
+<!--        </classes>-->
+    </test>
+    <test name="Chrome test">
+        <parameter name="BrowserType" value="chrome"/>
         <classes>
             <class name="selenide.sitepage.ObjectRubberDucksTest"/>
             <class name="selenide.sitepage.HomePage"/>
@@ -14,6 +43,15 @@
             <class name="selenide.sitepage.ScreenshotListener"/>
             <class name="selenide.sitepage.ShoppingCartPage"/>
             <class name="selenide.sitepage.SiteMenuPage"/>
+
+            <class name="staticpageobjectHW.StaticRubberDucksTest"/>
+            <class name="staticpageobjectHW.HomePage"/>
+            <class name="staticpageobjectHW.Locators"/>
+            <class name="staticpageobjectHW.LoginPage"/>
+            <class name="staticpageobjectHW.PageBase"/>
+            <class name="staticpageobjectHW.ShoppingCartPage"/>
+            <class name="staticpageobjectHW.SiteMenuPage"/>
+            <class name="staticpageobjectHW.TestBase"/>
         </classes>
     </test>
 </suite>

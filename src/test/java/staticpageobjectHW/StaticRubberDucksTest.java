@@ -19,7 +19,7 @@ public class StaticRubberDucksTest extends TestBase{
 
 //    Login Tests
 
-    @Test
+    @Test(groups = "authorization")
     public void ducksIncorrectLoginTest() {
         String expectedErrorMessage = "Wrong password or the account is disabled, or does not exist";
 
@@ -33,7 +33,7 @@ public class StaticRubberDucksTest extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "authorization")
     public void ducksCorrectLoginTest() {
         String expectedLoginMessage = "You are now logged in as Test Auto.";
 
@@ -46,14 +46,14 @@ public class StaticRubberDucksTest extends TestBase{
         softAssert.assertAll();
     }
 
-    @Test
+    @Test(groups = "authorization")
     public void isLoginFormDisplayedTest() {
         WebElement loginPageForm = driver.findElement(By.cssSelector("div[id= 'box-account-login'] form"));
         boolean loginPageFormIsDisplayed = loginPageForm.isDisplayed();
         Assert.assertTrue(loginPageFormIsDisplayed, "Login page is displayed");
     }
 
-    @Test
+    @Test(groups = "authorization")
     public void LoginFormIsNotDisplayedTest() {
         WebElement loginPageForm = driver.findElement(By.cssSelector("div[id= 'box-account-login'] form"));
         boolean loginPageFormIsDisplayed = loginPageForm.isDisplayed();
@@ -70,7 +70,7 @@ public class StaticRubberDucksTest extends TestBase{
     }
 
 //    Menu options tests
-    @Test
+    @Test(groups = "menu")
     public void clickOnGeneralMenuButton() {
         String expectedMostPopularProductsBoxText = "Most Popular";
         String expectedLatestProductsBoxText = "Latest Products";
@@ -91,7 +91,7 @@ public class StaticRubberDucksTest extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "menu")
     public void clickOnCategory1MenuButton() {
         SiteMenuPage.clickOnCategory1MenuOption(driver);
 
@@ -105,7 +105,7 @@ public class StaticRubberDucksTest extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "menu")
     public void clickOnCategory2MenuButton() {
         WebElement rubberDucksCategoryOneButton = driver.findElement(By.cssSelector("div[id='site-menu-wrapper'] li[class='category-1']"));
         WebElement rubberDucksCategoryTwoButton = driver.findElement(By.cssSelector("div[id='site-menu-wrapper'] li[class='category-2']"));
@@ -136,7 +136,7 @@ public class StaticRubberDucksTest extends TestBase{
     }
 
 //    Shopping cart tests
-    @Test
+    @Test(groups = "addToCart")
     public void addToCartNotLoggingUserTest() {
         driver.findElement(By.cssSelector("#box-most-popular [alt='Blue Duck']")).click();
         driver.findElement(By.name("add_cart_product")).click();
@@ -148,7 +148,7 @@ public class StaticRubberDucksTest extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "addToCart")
     public void addToCartLoggingUserTest() {
         LoginPage.attemptLogin(driver,"xidepo1971@rartg.com", "123456789");
 
@@ -164,7 +164,7 @@ public class StaticRubberDucksTest extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "shoppingCart")
     public void openShoppingCartByCheckoutButtonTest() {
         String emptyCartMessage = "There are no items in your cart.";
 
@@ -176,7 +176,7 @@ public class StaticRubberDucksTest extends TestBase{
         Assert.assertEquals(emptyCartMessageText, emptyCartMessage);
     }
 
-    @Test
+    @Test(groups = "shoppingCart")
     public void openShoppingCartByContentButtonTest() {
         String emptyCartMessage = "There are no items in your cart.";
 
@@ -189,7 +189,7 @@ public class StaticRubberDucksTest extends TestBase{
     }
 
 
-    @Test
+    @Test(groups = "productCategories")
     public void openProductNotLoggedInUserTest() {
         driver.findElement(By.cssSelector("#box-most-popular a[class='link']")).click();
 
@@ -199,7 +199,7 @@ public class StaticRubberDucksTest extends TestBase{
         driver.close();
     }
 
-    @Test
+    @Test(groups = "product")
     public void emptyQuantityProductAlertTest() {
         driver.findElement(By.cssSelector("#box-most-popular a[class='link']")).click();
         WebElement productQuantityField = driver.findElement(By.cssSelector("td[class='quantity'] input[name='quantity']"));
