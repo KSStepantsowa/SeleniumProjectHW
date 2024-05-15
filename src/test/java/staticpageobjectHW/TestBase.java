@@ -27,7 +27,7 @@ public class TestBase {
         }
 
         caps.setPlatform(Platform.WINDOWS);
-        driver = new RemoteWebDriver(new URL("http://192.168.100.42:4444/wd/hub"), caps);
+        driver = new RemoteWebDriver(new URL("http://192.168.0.100:4444/wd/hub"), caps);
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
