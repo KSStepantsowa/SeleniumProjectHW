@@ -25,7 +25,7 @@ public class ObjectRubberDucksTest {
     @BeforeMethod
     public void setup() {
 
-        Browser browser = Browser.valueOf(System.getProperty("browser", "chrome"));
+        Browser browser = Browser.valueOf(System.getProperty("browser", "edge"));
         driver = switch (browser) {
             case chrome -> new ChromeDriver();
             case firefox -> new FirefoxDriver();
@@ -47,7 +47,7 @@ public class ObjectRubberDucksTest {
 
     @Test
     public void searchInputTest() {
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
         driver.get("https://litecart.stqa.ru/en/");
 
         WebElement searchInput = driver.findElement(By.name("query"));
@@ -57,7 +57,7 @@ public class ObjectRubberDucksTest {
 
     @Test
     public void acmeLink() {
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
         driver.get("https://litecart.stqa.ru/en/");
 
         WebElement acmeLink = driver.findElement(By.id("box-logotypes"));
@@ -65,7 +65,7 @@ public class ObjectRubberDucksTest {
 
     @Test
     public void login() {
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
         driver.get("https://litecart.stqa.ru/en/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

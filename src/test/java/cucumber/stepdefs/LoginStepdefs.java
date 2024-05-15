@@ -6,13 +6,14 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public class LoginStepdefs {
     WebDriver driver;
 
     @Given("user is on login page")
     public void user_is_on_login_page() {
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
         driver.get("https://litecart.stqa.ru/en/");
 
     }
